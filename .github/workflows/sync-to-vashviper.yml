@@ -1,0 +1,26 @@
+name: Sync to vashviper
+
+on:
+  push:
+    branches:
+      - main  # Change to 'master' if that's your default branch
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to vashviper repo
+        env:
+          TARGET_REPO: vashviper/shadcn-showcase
+          GITHUB_TOKEN: ${{ secrets.VASHVIPER_PAT }}
+        run: |
+          git remote add target https://x-access-token:${GITHUB_TOKEN}@github.com/${TARGET_REPO}.git || git remote set-url target https://x-access-token:${GITHUB_TOKEN}@github.com/${TARGET_REPO}.git
+          git push target ${GITHUB_REF#refs/heads/}:main --force
