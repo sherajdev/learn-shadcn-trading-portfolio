@@ -5,13 +5,17 @@ import Link from "next/link"
 import {
   House,
   ChartLine,
-  ChartBar,
-  Folder,
-  Users,
+  TrendUp,
+  Eye,
+  ArrowsLeftRight,
+  FileText,
   Gear,
   SignOut,
   CaretDown,
-  Cube,
+  ChartPieSlice,
+  CurrencyDollar,
+  CurrencyBtc,
+  Coins,
 } from "@phosphor-icons/react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
@@ -39,20 +43,22 @@ import {
 
 const mainNavItems = [
   { title: "Home", icon: House, href: "/", isActive: false },
-  { title: "Dashboard", icon: ChartLine, href: "/dashboard", isActive: true },
-  { title: "Analytics", icon: ChartBar, href: "#", isActive: false },
+  { title: "Portfolio", icon: ChartPieSlice, href: "/dashboard", isActive: true },
+  { title: "Markets", icon: TrendUp, href: "#", isActive: false },
+  { title: "Watchlist", icon: Eye, href: "#", isActive: false },
 ]
 
-const projectItems = [
-  { title: "All Projects", href: "#" },
-  { title: "Active", href: "#" },
-  { title: "Archived", href: "#" },
+const assetItems = [
+  { title: "Stocks & ETFs", href: "#", icon: ChartLine },
+  { title: "Cryptocurrency", href: "#", icon: CurrencyBtc },
+  { title: "Forex", href: "#", icon: CurrencyDollar },
+  { title: "Metals", href: "#", icon: Coins },
 ]
 
-const teamItems = [
-  { title: "Members", href: "#" },
-  { title: "Permissions", href: "#" },
-  { title: "Invite", href: "#" },
+const activityItems = [
+  { title: "Transactions", href: "#" },
+  { title: "Reports", href: "#" },
+  { title: "Tax Documents", href: "#" },
 ]
 
 export function DashboardSidebar() {
@@ -64,11 +70,11 @@ export function DashboardSidebar() {
             <SidebarMenuButton size="lg" asChild>
               <Link href="/dashboard">
                 <div className="flex aspect-square size-8 items-center justify-center bg-primary text-primary-foreground">
-                  <Cube className="size-4" weight="fill" />
+                  <ChartPieSlice className="size-4" weight="fill" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-semibold">Dashboard</span>
-                  <span className="truncate text-xs text-muted-foreground">shadcn/ui</span>
+                  <span className="truncate font-semibold">Portfolio Tracker</span>
+                  <span className="truncate text-xs text-muted-foreground">Trading Dashboard</span>
                 </div>
               </Link>
             </SidebarMenuButton>
@@ -103,18 +109,19 @@ export function DashboardSidebar() {
               <Collapsible defaultOpen className="group/collapsible">
                 <SidebarMenuItem>
                   <CollapsibleTrigger asChild>
-                    <SidebarMenuButton tooltip="Projects">
-                      <Folder className="size-4" />
-                      <span>Projects</span>
+                    <SidebarMenuButton tooltip="Assets">
+                      <Coins className="size-4" />
+                      <span>Assets</span>
                       <CaretDown className="ml-auto size-4 transition-transform group-data-[state=open]/collapsible:rotate-180" />
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
                   <CollapsibleContent>
                     <SidebarMenuSub>
-                      {projectItems.map((item) => (
+                      {assetItems.map((item) => (
                         <SidebarMenuSubItem key={item.title}>
                           <SidebarMenuSubButton asChild>
                             <Link href={item.href}>
+                              <item.icon className="size-3" />
                               <span>{item.title}</span>
                             </Link>
                           </SidebarMenuSubButton>
@@ -128,15 +135,15 @@ export function DashboardSidebar() {
               <Collapsible className="group/collapsible">
                 <SidebarMenuItem>
                   <CollapsibleTrigger asChild>
-                    <SidebarMenuButton tooltip="Team">
-                      <Users className="size-4" />
-                      <span>Team</span>
+                    <SidebarMenuButton tooltip="Activity">
+                      <FileText className="size-4" />
+                      <span>Activity</span>
                       <CaretDown className="ml-auto size-4 transition-transform group-data-[state=open]/collapsible:rotate-180" />
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
                   <CollapsibleContent>
                     <SidebarMenuSub>
-                      {teamItems.map((item) => (
+                      {activityItems.map((item) => (
                         <SidebarMenuSubItem key={item.title}>
                           <SidebarMenuSubButton asChild>
                             <Link href={item.href}>
@@ -177,11 +184,11 @@ export function DashboardSidebar() {
             <SidebarMenuButton size="lg">
               <Avatar className="size-8">
                 <AvatarImage src="https://github.com/shadcn.png" alt="User" />
-                <AvatarFallback>CN</AvatarFallback>
+                <AvatarFallback>JD</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-semibold">shadcn</span>
-                <span className="truncate text-xs text-muted-foreground">m@example.com</span>
+                <span className="truncate font-semibold">John Doe</span>
+                <span className="truncate text-xs text-muted-foreground">investor@example.com</span>
               </div>
               <SignOut className="ml-auto size-4 text-muted-foreground" />
             </SidebarMenuButton>
