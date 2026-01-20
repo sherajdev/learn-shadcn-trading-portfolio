@@ -322,9 +322,9 @@ export const portfolioOverview: PortfolioOverview = {
 const assetColors: Record<AssetType, string> = {
   stock: 'hsl(var(--chart-1))',
   etf: 'hsl(var(--chart-2))',
-  crypto: 'hsl(var(--chart-3))',
-  metal: 'hsl(var(--chart-4))',
-  forex: 'hsl(var(--chart-5))',
+  crypto: 'hsl(var(--primary))',
+  metal: 'hsl(var(--chart-3))',
+  forex: 'hsl(var(--chart-4))',
 };
 
 export const assetAllocation: AssetAllocation[] = Object.entries(

@@ -8,11 +8,11 @@ import { Button } from '@/components/ui/button';
 import { ArrowUpDown } from 'lucide-react';
 
 const assetTypeColors: Record<string, string> = {
-  stock: 'bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20',
-  etf: 'bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-500/20',
-  crypto: 'bg-orange-500/10 text-orange-700 dark:text-orange-400 border-orange-500/20',
-  metal: 'bg-yellow-500/10 text-yellow-700 dark:text-yellow-400 border-yellow-500/20',
-  forex: 'bg-green-500/10 text-green-700 dark:text-green-400 border-green-500/20',
+  stock: 'bg-chart-1/10 text-chart-1 border-chart-1/20',
+  etf: 'bg-chart-2/10 text-chart-2 border-chart-2/20',
+  crypto: 'bg-primary/10 text-primary border-primary/20',
+  metal: 'bg-chart-3/10 text-chart-3 border-chart-3/20',
+  forex: 'bg-chart-4/10 text-chart-4 border-chart-4/20',
 };
 
 export const holdingsColumns: ColumnDef<Holding>[] = [
@@ -156,7 +156,7 @@ export const holdingsColumns: ColumnDef<Holding>[] = [
       const isPositive = changePercent >= 0;
 
       return (
-        <div className={`flex items-center gap-1 ${isPositive ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+        <div className={`flex items-center gap-1 ${isPositive ? 'text-status-success' : 'text-status-error'}`}>
           {isPositive ? (
             <TrendUp className="h-4 w-4" weight="bold" />
           ) : (
@@ -190,7 +190,7 @@ export const holdingsColumns: ColumnDef<Holding>[] = [
       const isPositive = totalReturnPercent >= 0;
 
       return (
-        <div className={`flex items-center gap-1 ${isPositive ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+        <div className={`flex items-center gap-1 ${isPositive ? 'text-status-success' : 'text-status-error'}`}>
           {isPositive ? (
             <TrendUp className="h-4 w-4" weight="bold" />
           ) : (

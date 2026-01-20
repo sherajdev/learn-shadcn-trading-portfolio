@@ -10,16 +10,16 @@ export function PortfolioOverview() {
       title: 'Total Portfolio Value',
       value: formatCurrency(portfolioOverview.totalValue),
       icon: Wallet,
-      iconColor: 'text-blue-500',
-      bgColor: 'bg-blue-500/10',
+      iconColor: 'text-primary',
+      bgColor: 'bg-primary/10',
     },
     {
       title: 'Total Return',
       value: formatCurrency(portfolioOverview.totalReturn),
       change: formatPercent(portfolioOverview.totalReturnPercent),
       icon: portfolioOverview.totalReturn >= 0 ? TrendUp : TrendDown,
-      iconColor: portfolioOverview.totalReturn >= 0 ? 'text-green-500' : 'text-red-500',
-      bgColor: portfolioOverview.totalReturn >= 0 ? 'bg-green-500/10' : 'bg-red-500/10',
+      iconColor: portfolioOverview.totalReturn >= 0 ? 'text-status-success' : 'text-status-error',
+      bgColor: portfolioOverview.totalReturn >= 0 ? 'bg-status-success/10' : 'bg-status-error/10',
       trend: portfolioOverview.totalReturn >= 0 ? 'up' : 'down',
     },
     {
@@ -27,16 +27,16 @@ export function PortfolioOverview() {
       value: formatCurrency(portfolioOverview.dayChange),
       change: formatPercent(portfolioOverview.dayChangePercent),
       icon: portfolioOverview.dayChange >= 0 ? TrendUp : TrendDown,
-      iconColor: portfolioOverview.dayChange >= 0 ? 'text-green-500' : 'text-red-500',
-      bgColor: portfolioOverview.dayChange >= 0 ? 'bg-green-500/10' : 'bg-red-500/10',
+      iconColor: portfolioOverview.dayChange >= 0 ? 'text-status-success' : 'text-status-error',
+      bgColor: portfolioOverview.dayChange >= 0 ? 'bg-status-success/10' : 'bg-status-error/10',
       trend: portfolioOverview.dayChange >= 0 ? 'up' : 'down',
     },
     {
       title: 'Total Invested',
       value: formatCurrency(portfolioOverview.totalInvested),
       icon: Coins,
-      iconColor: 'text-purple-500',
-      bgColor: 'bg-purple-500/10',
+      iconColor: 'text-chart-2',
+      bgColor: 'bg-chart-2/10',
     },
   ];
 
@@ -55,7 +55,7 @@ export function PortfolioOverview() {
           <CardContent>
             <div className="text-2xl font-bold">{metric.value}</div>
             {metric.change && (
-              <p className={`text-xs ${metric.trend === 'up' ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'} mt-1 flex items-center gap-1`}>
+              <p className={`text-xs ${metric.trend === 'up' ? 'text-status-success' : 'text-status-error'} mt-1 flex items-center gap-1`}>
                 {metric.trend === 'up' ? (
                   <TrendUp className="h-3 w-3" weight="bold" />
                 ) : (
