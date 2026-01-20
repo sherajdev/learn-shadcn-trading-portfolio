@@ -71,11 +71,11 @@ export function PortfolioPerformanceChart({ className }: PortfolioPerformanceCha
           <AreaChart data={chartData}>
             <defs>
               <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="hsl(var(--chart-1))" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="hsl(var(--chart-1))" stopOpacity={0} />
+                <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3} />
+                <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
+            <CartesianGrid strokeDasharray="3 3" className="stroke-muted/20" />
             <XAxis
               dataKey="date"
               className="text-xs"
@@ -90,7 +90,7 @@ export function PortfolioPerformanceChart({ className }: PortfolioPerformanceCha
             <Area
               type="monotone"
               dataKey="value"
-              stroke="hsl(var(--chart-1))"
+              stroke="hsl(var(--primary))"
               strokeWidth={2}
               fillOpacity={1}
               fill="url(#colorValue)"
