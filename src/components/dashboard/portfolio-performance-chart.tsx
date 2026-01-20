@@ -28,8 +28,8 @@ export function PortfolioPerformanceChart({ className }: PortfolioPerformanceCha
   const CustomTooltip = ({ active, payload }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="rounded-lg border bg-background p-3 shadow-md">
-          <p className="text-sm font-medium">{payload[0].payload.date}</p>
+        <div className="rounded-lg border border-border bg-card p-3 shadow-lg">
+          <p className="text-sm font-medium text-card-foreground">{payload[0].payload.date}</p>
           <p className="text-lg font-bold text-primary">
             {formatCurrency(payload[0].value, 0)}
           </p>
@@ -71,26 +71,26 @@ export function PortfolioPerformanceChart({ className }: PortfolioPerformanceCha
           <AreaChart data={chartData}>
             <defs>
               <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
+                <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.3} />
+                <stop offset="95%" stopColor="#f59e0b" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" className="stroke-muted/20" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#374151" opacity={0.2} />
             <XAxis
               dataKey="date"
-              className="text-xs"
-              tick={{ fill: 'hsl(var(--muted-foreground))' }}
+              tick={{ fill: '#9ca3af', fontSize: 12 }}
+              stroke="#374151"
             />
             <YAxis
-              className="text-xs"
-              tick={{ fill: 'hsl(var(--muted-foreground))' }}
+              tick={{ fill: '#9ca3af', fontSize: 12 }}
+              stroke="#374151"
               tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
             />
             <Tooltip content={<CustomTooltip />} />
             <Area
               type="monotone"
               dataKey="value"
-              stroke="hsl(var(--primary))"
+              stroke="#f59e0b"
               strokeWidth={2}
               fillOpacity={1}
               fill="url(#colorValue)"

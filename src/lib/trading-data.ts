@@ -320,11 +320,11 @@ export const portfolioOverview: PortfolioOverview = {
 
 // Calculate Asset Allocation
 const assetColors: Record<AssetType, string> = {
-  stock: 'hsl(var(--chart-1))',
-  etf: 'hsl(var(--chart-2))',
-  crypto: 'hsl(var(--primary))',
-  metal: 'hsl(var(--chart-3))',
-  forex: 'hsl(var(--chart-4))',
+  stock: '#8b5cf6',     // Purple - chart-1
+  etf: '#14b8a6',       // Teal - chart-2
+  crypto: '#f59e0b',    // Gold - primary
+  metal: '#eab308',     // Yellow - chart-3
+  forex: '#ec4899',     // Pink - chart-4
 };
 
 export const assetAllocation: AssetAllocation[] = Object.entries(

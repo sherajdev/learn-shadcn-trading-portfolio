@@ -19,8 +19,8 @@ export function AssetAllocationChart({ className }: AssetAllocationChartProps) {
   const CustomTooltip = ({ active, payload }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="rounded-lg border bg-background p-3 shadow-md">
-          <p className="font-semibold">{payload[0].name}</p>
+        <div className="rounded-lg border border-border bg-card p-3 shadow-lg">
+          <p className="font-semibold text-card-foreground">{payload[0].name}</p>
           <p className="text-sm text-muted-foreground">
             {formatCurrency(payload[0].value)}
           </p>
@@ -39,11 +39,11 @@ export function AssetAllocationChart({ className }: AssetAllocationChartProps) {
         {payload.map((entry: any, index: number) => (
           <div key={`legend-${index}`} className="flex items-center gap-2">
             <div
-              className="h-3 w-3 rounded-sm"
+              className="h-3 w-3 rounded-sm flex-shrink-0"
               style={{ backgroundColor: entry.color }}
             />
             <div className="flex flex-col">
-              <span className="text-xs font-medium">{entry.value}</span>
+              <span className="text-xs font-medium text-foreground">{entry.value}</span>
               <span className="text-xs text-muted-foreground">
                 {entry.payload.percentage.toFixed(1)}%
               </span>
