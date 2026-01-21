@@ -11,6 +11,10 @@
     "pages:dev": "pnpm exec wrangler pages dev .vercel/output/static --compatibility-flag=nodejs_compat --compatibility-date=2024-12-30"
   },
   "dependencies": {
+    "@convex-dev/better-auth": "^0.10.10",
+    "@radix-ui/react-label": "^2.1.8",
+    "@radix-ui/react-slot": "^1.2.4",
+    "better-auth": "^1.4.17",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "convex": "^1.31.5",

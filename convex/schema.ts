@@ -1,7 +1,11 @@
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
+import { betterAuth } from "convex-dev-better-auth";
 
 export default defineSchema({
+  // Better Auth tables (auto-generated when using betterAuth())
+  ...betterAuth,
+
   portfolios: defineTable({
     userId: v.string(),
     name: v.string(),
